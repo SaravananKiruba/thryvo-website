@@ -1,12 +1,140 @@
 // Add structured data (JSON-LD) for SEO
 import { getOrganizationSchema, getWebsiteSchema, SchemaScript } from '@/lib/schema';
+import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import Container from '@/components/ui/Container';
+import Card from '@/components/ui/Card';
 
 export default function HomePage() {
   return (
     <>
       <SchemaScript schema={getOrganizationSchema()} />
       <SchemaScript schema={getWebsiteSchema()} />
-      {/* ...existing homepage content... */}
+      
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-indigo-50 to-white py-16 sm:py-24">
+        <Container className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6">
+                Empowering Students for <span className="text-indigo-600">Future Success</span>
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Thryvo is a comprehensive platform connecting students with campus placement opportunities, skill development resources, and global higher education pathways.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/students">
+                  <Button variant="primary" size="large">
+                    For Students
+                  </Button>
+                </Link>
+                <Link href="/colleges">
+                  <Button variant="outline" size="large">
+                    For Colleges
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden">
+              {/* Replace with actual image later */}
+              <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
+                <span className="text-2xl font-bold text-indigo-300">Hero Image</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 sm:py-24">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              What Makes Thryvo Different
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We've built a platform that addresses the real needs of students, educational institutions, and employers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card 
+              className="border border-gray-200"
+              title="Campus Placements"
+              description="Connect with top companies actively looking for fresh talent through our integrated campus recruitment system."
+            />
+            <Card 
+              className="border border-gray-200"
+              title="Skill Development"
+              description="Access industry-relevant courses and workshops that prepare you for the modern job market."
+            />
+            <Card 
+              className="border border-gray-200"
+              title="Higher Education"
+              description="Explore global education opportunities including scholarships, exchange programs and more."
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-indigo-50 py-16 sm:py-24">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              What Our Users Say
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Hear from students, colleges and employers who have benefited from Thryvo.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold mr-4">
+                    {/* Placeholder for user avatar */}
+                    U{i}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Student Name</h3>
+                    <p className="text-sm text-gray-500">Computer Science, University</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 italic">"Thryvo helped me find my dream internship and develop the skills that make me stand out in the job market. The platform is intuitive and tailored for students like me."</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 sm:py-24">
+        <Container>
+          <div className="bg-indigo-600 rounded-2xl shadow-xl overflow-hidden">
+            <div className="px-6 py-12 sm:px-12 sm:py-16 lg:flex lg:items-center lg:justify-between">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Ready to Transform Your Future?
+                </h2>
+                <p className="mt-4 text-lg text-indigo-100">
+                  Join Thryvo today and connect with opportunities that will shape your career.
+                </p>
+              </div>
+              <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div className="inline-flex rounded-md shadow">
+                  <Link href="/contact">
+                    <Button className="bg-white text-indigo-600 hover:bg-indigo-50">
+                      Get Started
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
