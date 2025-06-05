@@ -1,5 +1,11 @@
 import Container from '@/components/ui/Container';
 import ContactForm from '@/components/ui/ContactForm';
+import type { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata = {
   title: 'Contact Us | Thryvo',

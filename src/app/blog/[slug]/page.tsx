@@ -3,6 +3,7 @@ import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import { getBlogPostBySlug, getRelatedPosts, blogPosts } from '@/data/blogPosts';
 import { notFound } from 'next/navigation';
+import type { Viewport } from 'next';
 
 type Params = { params: { slug: string } }
 
@@ -12,6 +13,11 @@ export function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export async function generateMetadata({ params }: Params) {
   const post = getBlogPostBySlug(params.slug);

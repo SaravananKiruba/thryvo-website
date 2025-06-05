@@ -6,6 +6,12 @@ import Container from '@/components/ui/Container';
 import Card from '@/components/ui/Card';
 import { blogPosts } from '@/data/blogPosts';
 import Image from 'next/image';
+import type { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata = {
   title: 'Thryvo | Campus Placements & Career Development Platform',

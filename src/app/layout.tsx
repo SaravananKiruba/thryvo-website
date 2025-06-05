@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -10,12 +10,16 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: 'Thryvo | Student-Centric Platform for Campus Placements & Skill Development',
   description: 'Thryvo is a student-centric platform focused on campus placements, skill development, and global higher-education opportunities.',
   keywords: 'thryvo, campus placements, skill development, higher education, students, colleges, employers',
   authors: [{ name: 'Thryvo Team' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   metadataBase: new URL('https://www.thryvo.com'),
   openGraph: {

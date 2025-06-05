@@ -1,5 +1,11 @@
 import Container from '@/components/ui/Container';
 import React from 'react';
+import type { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata = {
   title: 'Frequently Asked Questions | Thryvo',
