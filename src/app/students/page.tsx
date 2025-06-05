@@ -11,28 +11,137 @@ export const metadata = {
 
 export default function StudentsPage() {
   return (
-    <React.Fragment>
-      {/* Hero Section */}
+    <React.Fragment>      {/* Hero Section */}
       <section className="bg-gradient-to-b from-indigo-50 to-white py-16 sm:py-24">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-              Your Bridge to Success
-            </h1>
-            <p className="text-lg text-gray-600 mb-8">
-              Thryvo provides everything you need to launch your career, enhance your skills, and explore global opportunities.
-            </p>
-            <div className="inline-flex rounded-md shadow">
-              <Link href="/contact">
-                <Button variant="primary" size="large">
-                  Sign Up for Free
-                </Button>
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+                Your <span className="text-indigo-600">Career Mentor</span>, In Your Pocket
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Thryvo provides everything you need to launch your career, enhance your skills, and explore global opportunities.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <Button variant="primary" size="large">
+                    Create Your Career Profile
+                  </Button>
+                </Link>
+                <Link href="#how-it-works">
+                  <Button variant="outline" size="large">
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              {/* Replace with actual image later */}
+              <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
+                <span className="text-2xl font-bold text-indigo-300">Student Hero Image</span>
+              </div>
             </div>
           </div>
         </Container>
       </section>
-
+      
+      {/* Benefits Carousel */}
+      <section className="py-16 bg-white">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              Your Path to Success Starts Here
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover how Thryvo empowers your career journey every step of the way
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Personalized Career Paths',
+                description: 'Discover career options that match your skills, interests, and academic background.',
+                icon: '🧭'
+              },
+              {
+                title: 'Exclusive Internships',
+                description: 'Access opportunities with leading companies that recruit specifically through Thryvo.',
+                icon: '🏢'
+              },
+              {
+                title: 'Skill Tracking',
+                description: 'Build and track in-demand skills that make you stand out to employers.',
+                icon: '📊'
+              },
+            ].map((benefit, index) => (
+              <div key={index} className="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                <div className="text-4xl mb-6">{benefit.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>      {/* Platform Walkthrough */}
+      <section id="how-it-works" className="py-16 bg-gray-50">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              Platform Walkthrough
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Experience how Thryvo works to enhance your career journey
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="bg-white p-8 rounded-lg shadow-md order-2 lg:order-1">
+              <div className="space-y-8">
+                {[
+                  {
+                    title: 'Smart Profile Builder',
+                    description: 'Create a dynamic profile that showcases your skills, projects, and aspirations to employers.',
+                  },
+                  {
+                    title: 'Opportunity Matching',
+                    description: 'Our AI algorithm matches you with opportunities that align with your skills and career goals.',
+                  },
+                  {
+                    title: 'Skill Development Hub',
+                    description: 'Access courses, workshops, and resources to build skills that are in demand.',
+                  },
+                  {
+                    title: 'Application Tracking',
+                    description: 'Keep track of all your applications, interviews, and skill development progress in one place.',
+                  },
+                ].map((feature, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                      <p className="text-gray-600">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg order-1 lg:order-2">
+              {/* Animated explainer placeholder - replace with actual content */}
+              <div className="absolute inset-0 bg-indigo-100 flex flex-col items-center justify-center">
+                <span className="text-2xl font-bold text-indigo-300 mb-4">Platform Demo</span>
+                <p className="text-indigo-400 text-center max-w-xs">
+                  [Interactive platform walkthrough animation would go here]
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+      
       {/* How it Works */}
       <section className="py-16">
         <Container>
@@ -130,12 +239,18 @@ export default function StudentsPage() {
             ))}
           </div>
         </Container>
-      </section>
-
-      {/* Success Stories */}
-      <section className="py-16">
+      </section>      {/* Success Stories */}
+      <section className="py-16 bg-indigo-50">
         <Container>
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Success Stories</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              Success Stories
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Real students who transformed their careers with Thryvo
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {[
               {
@@ -143,12 +258,14 @@ export default function StudentsPage() {
                 university: 'Delhi University',
                 outcome: 'Software Engineer at Google',
                 story: 'Thanks to Thryvo\'s placement preparation resources, I aced my interviews and landed my dream job at Google. The mock interviews and company-specific guidance were invaluable.',
+                image: '/student1.jpg',
               },
               {
                 name: 'Rahul Patel',
                 university: 'BITS Pilani',
                 outcome: 'Full scholarship to MIT',
                 story: 'Thryvo helped me identify and apply for scholarships that aligned with my research interests. Their guidance throughout the application process was crucial to my success.',
+                image: '/student2.jpg',
               },
               {
                 name: 'Sophie Chen',

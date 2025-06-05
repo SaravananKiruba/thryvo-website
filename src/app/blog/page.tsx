@@ -4,8 +4,8 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
 export const metadata = {
-  title: 'Blog | Thryvo',
-  description: 'Stay updated with the latest insights on campus placements, skill development, and higher education opportunities.',
+  title: 'Blog & Resources | Thryvo',
+  description: 'Stay updated with the latest insights on campus placements, skill development, and higher education opportunities to advance your career.',
 };
 
 const blogPosts = [
@@ -79,7 +79,7 @@ export default function BlogPage() {
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-              Thryvo Blog
+              Blog & <span className="text-indigo-600">Resources</span>
             </h1>
             <p className="text-lg text-gray-600">
               Insights, tips, and resources to help students navigate their education and career journeys.
@@ -87,39 +87,108 @@ export default function BlogPage() {
           </div>
         </Container>
       </section>
+      
+      {/* Topic Filters */}
+      <section className="py-8 border-b border-gray-200">
+        <Container>
+          <div className="flex flex-wrap justify-center gap-3">
+            {['All Topics', 'Study Abroad', 'Internships', 'Career Tips', 'College Hacks', 'Tech Trends', 'Higher Education'].map((topic) => (
+              <button 
+                key={topic} 
+                className={`px-4 py-2 rounded-full text-sm font-medium ${topic === 'All Topics' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       {/* Featured Articles */}
       <section className="py-16">
         <Container>
+          <h2 className="text-2xl font-bold mb-8">Featured Articles</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main featured article */}
             <div className="lg:col-span-2">
-              <div className="relative h-[400px] rounded-lg overflow-hidden mb-4 bg-indigo-100">
-                {/* Placeholder for featured image */}
-                <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative h-[400px] rounded-xl overflow-hidden mb-8 group shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+                <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-indigo-300">Featured Image</span>
                 </div>
+                <div className="absolute bottom-0 left-0 p-8 text-white">
+                  <span className="inline-block px-3 py-1 rounded-full bg-indigo-600 text-white text-xs font-semibold mb-3">
+                    {blogPosts[2].category}
+                  </span>
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-indigo-200 transition-colors">
+                    <Link href={`/blog/${blogPosts[2].id}`}>
+                      {blogPosts[2].title}
+                    </Link>
+                  </h3>
+                  <p className="text-gray-200 mb-4 line-clamp-3">
+                    {blogPosts[2].excerpt}
+                  </p>
+                  <div className="flex items-center">
+                    <div className="h-8 w-8 rounded-full bg-indigo-200 flex items-center justify-center text-indigo-600 font-bold mr-3">
+                      {blogPosts[2].author.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium">{blogPosts[2].author}</div>
+                      <div className="text-xs text-gray-300">{blogPosts[2].date} • {blogPosts[2].readTime}</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
-                {blogPosts[0].category}
-              </span>
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                <Link href={`/blog/${blogPosts[0].id}`} className="hover:text-indigo-600">
-                  {blogPosts[0].title}
-                </Link>
-              </h2>
-              <p className="text-gray-600 mb-4">{blogPosts[0].excerpt}</p>
-              <div className="flex items-center text-sm text-gray-500">
-                <span>{blogPosts[0].date}</span>
-                <span className="mx-2">•</span>
-                <span>{blogPosts[0].readTime}</span>
-                <span className="mx-2">•</span>
-                <span>By {blogPosts[0].author}</span>
+              
+              {/* Secondary featured articles in grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[blogPosts[0], blogPosts[1]].map((post) => (
+                  <Card key={post.id} className="hover:shadow-lg transition-shadow">
+                    <div className="mb-4">
+                      <span className="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-medium">
+                        {post.category}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      <Link href={`/blog/${post.id}`} className="hover:text-indigo-600">
+                        {post.title}
+                      </Link>
+                    </h3>
+                    <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <span>{post.date}</span>
+                        <span className="mx-2">•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      <Link href={`/blog/${post.id}`} className="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                        Read more →
+                      </Link>
+                    </div>
+                  </Card>
+                ))}
               </div>
             </div>
-
+            
+            {/* Sidebar featured articles */}
             <div className="space-y-8">
-              {blogPosts.slice(1, 3).map((post) => (
-                <div key={post.id} className="flex flex-col sm:flex-row gap-4">
+              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Popular Topics</h3>
+                <div className="flex flex-wrap gap-2">
+                  {['Internships', 'Resume Tips', 'Interview Prep', 'Study Abroad', 'Skill Development', 'Career Paths'].map((tag) => (
+                    <Link 
+                      key={tag} 
+                      href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-indigo-100 hover:text-indigo-800"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              
+              {blogPosts.slice(3, 5).map((post) => (
+                <div key={post.id} className="flex flex-col sm:flex-row gap-4 border-b border-gray-100 pb-4">
                   <div className="sm:w-1/3">
                     <div className="h-24 bg-indigo-100 rounded-lg flex items-center justify-center">
                       <span className="text-sm font-bold text-indigo-300">Image</span>

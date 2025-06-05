@@ -10,30 +10,104 @@ export const metadata = {
 
 export default function EmployersPage() {
   return (
-    <>
-      {/* Hero Section */}
+    <>      {/* Hero Section */}
       <section className="bg-gradient-to-b from-indigo-50 to-white py-16 sm:py-24">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-              Source the Best Student Talent
-            </h1>
-            <p className="text-lg text-gray-600 mb-8">
-              Thryvo helps companies connect with skilled, motivated students and fresh graduates through our campus recruitment platform.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+                Recruit from <span className="text-indigo-600">Top Colleges</span> Across India
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Thryvo helps companies connect with skilled, motivated students and fresh graduates through our AI-powered campus recruitment platform.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <Button variant="primary" size="large">
+                    Post a Job
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button variant="outline" size="large">
+                    Request Demo
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              {/* Replace with actual image later */}
+              <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
+                <span className="text-2xl font-bold text-indigo-300">Recruitment Platform Preview</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>      {/* Talent Intelligence */}
+      <section className="py-16">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Talent Intelligence Platform
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Use AI to find the perfect candidates for your organization
             </p>
-            <div className="inline-flex rounded-md shadow">
-              <Link href="/contact">
-                <Button variant="primary" size="large">
-                  Start Recruiting
-                </Button>
-              </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">AI-Powered Matching</h3>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">Skills-Based Matching</h4>
+                    <p className="text-gray-600">Our AI looks beyond keywords on resumes to match candidates based on verified skills and competencies.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">Smart Shortlisting</h4>
+                    <p className="text-gray-600">Automatically identify the most promising candidates based on your specific requirements and company culture.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">Predictive Analytics</h4>
+                    <p className="text-gray-600">Forecast candidate success and retention based on historical data and performance patterns.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg order-1 lg:order-2">
+              {/* Replace with actual images */}
+              <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
+                <span className="text-xl font-bold text-indigo-300">AI Matching Dashboard</span>
+              </div>
             </div>
           </div>
         </Container>
       </section>
-
+      
       {/* Why Recruit with Thryvo */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-50">
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -232,16 +306,55 @@ export default function EmployersPage() {
             ))}
           </div>
         </Container>
-      </section>
-
-      {/* Partner Companies */}
+      </section>      {/* ROI Metrics */}
       <section className="py-16">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Proven Return on Investment
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Measurable results that impact your bottom line
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { metric: '60%', label: 'Reduction in time-to-hire', icon: '⏱️' },
+              { metric: '45%', label: 'Lower cost per hire', icon: '💰' },
+              { metric: '85%', label: 'Quality of hire improvement', icon: '🎯' },
+              { metric: '90%', label: 'Recruiter satisfaction', icon: '😊' },
+            ].map((item, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg shadow-md border border-gray-100 text-center">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="text-4xl font-bold text-indigo-600 mb-2">{item.metric}</div>
+                <p className="text-gray-600">{item.label}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 bg-indigo-50 p-6 rounded-lg max-w-3xl mx-auto">
+            <div className="flex items-center">
+              <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold mr-4">
+                💡
+              </div>
+              <p className="text-gray-600 italic">
+                "Our campus recruitment costs went down by 40% while the quality of candidates improved dramatically. Thryvo paid for itself in the first hiring cycle."
+              </p>
+            </div>
+            <p className="text-right mt-4 text-sm font-medium text-gray-900">— VP of Talent Acquisition, Fortune 500 Tech Company</p>
+          </div>
+        </Container>
+      </section>
+      
+      {/* Partner Companies */}
+      <section className="py-16 bg-gray-50">
         <Container>
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Companies That Trust Us</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {/* Placeholder for company logos */}
             {Array(6).fill(0).map((_, i) => (
-              <div key={i} className="h-16 bg-gray-100 rounded flex items-center justify-center">
+              <div key={i} className="h-16 bg-white shadow-sm rounded flex items-center justify-center">
                 <span className="text-gray-400 font-semibold">Logo {i+1}</span>
               </div>
             ))}

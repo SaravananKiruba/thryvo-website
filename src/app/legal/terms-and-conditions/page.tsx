@@ -164,19 +164,17 @@ export default function TermsAndConditionsPage() {
             <p>
               By continuing to access or use our Service after those revisions become effective, you agree to be bound by the 
               revised terms. If you do not agree to the new terms, please stop using the Service.
-            </p>
-
-            <h2>Contact Us</h2>
+            </p>            <h2>Contact Us</h2>
             <p>
               If you have any questions about these Terms, please contact us at:
             </p>
             <p>
-              Thryvo<br />
-              123 Innovation Way<br />
-              Tech Park, Bangalore 560001<br />
+              Thryvo Technologies Pvt. Ltd.<br />
+              123 Innovation Hub, Sector 21<br />
+              Gurgaon, Haryana 122001<br />
               India<br /><br />
               Email: legal@thryvo.com<br />
-              Phone: +91 123-456-7890
+              Phone: +91 8800 123 456
             </p>
           </div>
         </Container>

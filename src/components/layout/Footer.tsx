@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import Container from '@/components/ui/Container';
 
 const footerNavigation = {
   main: [
@@ -10,9 +12,19 @@ const footerNavigation = {
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ],
+  resources: [
+    { name: 'Career Guides', href: '/resources/career-guides' },
+    { name: 'Industry Reports', href: '/resources/industry-reports' },
+    { name: 'Webinars', href: '/resources/webinars' },
+    { name: 'Podcasts', href: '/resources/podcasts' },
+    { name: 'FAQ', href: '/faq' },
+  ],
   legal: [
     { name: 'Privacy Policy', href: '/legal/privacy-policy' },
     { name: 'Terms & Conditions', href: '/legal/terms-and-conditions' },
+    { name: 'Cookie Policy', href: '/legal/cookie-policy' },
+    { name: 'Security', href: '/legal/security' },
+    { name: 'Accessibility', href: '/legal/accessibility' },
   ],
   social: [
     {
@@ -59,51 +71,142 @@ const footerNavigation = {
         </svg>
       ),
     },
+    {
+      name: 'YouTube',
+      href: '#',
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      ),
+    },
   ],
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
-        <div className="flex justify-center space-x-6 md:order-2">
-          {footerNavigation.social.map((item) => (
-            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500" target="_blank" rel="noopener noreferrer">
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-        <div className="mt-8 md:order-1 md:mt-0">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-2">
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">Navigate</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {footerNavigation.main.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                      {item.name}
-                    </Link>
-                  </li>
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <Container>
+        <div className="py-12 md:py-16">
+          {/* Logo and About */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+            <div className="lg:col-span-2">
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-md bg-indigo-600 flex items-center justify-center text-white font-bold text-xl mr-2">
+                  T
+                </div>
+                <span className="text-xl font-bold text-gray-900">Thryvo</span>
+              </div>
+              <p className="mt-4 text-base text-gray-500 max-w-md">
+                Thryvo is the next-generation platform connecting students with campus placement opportunities, skill development resources, and global higher education pathways.
+              </p>
+              <div className="mt-6 flex space-x-6">
+                {footerNavigation.social.map((item) => (
+                  <a key={item.name} href={item.href} className="text-gray-400 hover:text-indigo-600" target="_blank" rel="noopener noreferrer">
+                    <span className="sr-only">{item.name}</span>
+                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                  </a>
                 ))}
-              </ul>
+              </div>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {footerNavigation.legal.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <div className="lg:col-span-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900">Navigate</h3>
+                  <ul role="list" className="mt-4 space-y-3">
+                    {footerNavigation.main.map((item) => (
+                      <li key={item.name}>
+                        <Link href={item.href} className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900">Resources</h3>
+                  <ul role="list" className="mt-4 space-y-3">
+                    {footerNavigation.resources.map((item) => (
+                      <li key={item.name}>
+                        <Link href={item.href} className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900">Legal</h3>
+                  <ul role="list" className="mt-4 space-y-3">
+                    {footerNavigation.legal.map((item) => (
+                      <li key={item.name}>
+                        <Link href={item.href} className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <p className="mt-8 text-xs leading-5 text-gray-500">&copy; {new Date().getFullYear()} Thryvo. All rights reserved.</p>
+          
+          {/* Contact Information */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900">Office Location</h3>
+                <address className="mt-3 not-italic text-sm text-gray-600">
+                  Thryvo Technologies Pvt. Ltd.<br />
+                  123 Innovation Hub, Sector 21<br />
+                  Gurgaon, Haryana 122001<br />
+                  India
+                </address>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900">Contact</h3>
+                <p className="mt-3 text-sm text-gray-600">
+                  <a href="mailto:info@thryvo.com" className="hover:text-indigo-600 transition-colors">info@thryvo.com</a><br />
+                  <a href="tel:+918800123456" className="hover:text-indigo-600 transition-colors">+91 8800 123 456</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900">Support</h3>
+                <p className="mt-3 text-sm text-gray-600">
+                  <a href="mailto:support@thryvo.com" className="hover:text-indigo-600 transition-colors">support@thryvo.com</a><br />
+                  <Link href="/help" className="hover:text-indigo-600 transition-colors">Help Center</Link>
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900">Download Our App</h3>
+                <div className="mt-3 flex flex-col space-y-2">
+                  <a href="#" className="inline-block">
+                    <div className="h-10 w-32 bg-gray-900 rounded flex items-center justify-center text-white text-xs">
+                      App Store
+                    </div>
+                  </a>
+                  <a href="#" className="inline-block">
+                    <div className="h-10 w-32 bg-gray-900 rounded flex items-center justify-center text-white text-xs">
+                      Google Play
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Copyright and Bottom Links */}
+          <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()} Thryvo Technologies Pvt. Ltd. All rights reserved.</p>
+            <div className="mt-4 md:mt-0 flex space-x-6">
+              <Link href="/sitemap" className="text-xs text-gray-500 hover:text-indigo-600 transition-colors">Sitemap</Link>
+              <Link href="/careers" className="text-xs text-gray-500 hover:text-indigo-600 transition-colors">Careers</Link>
+              <Link href="/press" className="text-xs text-gray-500 hover:text-indigo-600 transition-colors">Press</Link>
+              <Link href="/investors" className="text-xs text-gray-500 hover:text-indigo-600 transition-colors">Investors</Link>
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

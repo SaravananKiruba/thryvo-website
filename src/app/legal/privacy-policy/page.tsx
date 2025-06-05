@@ -112,19 +112,17 @@ export default function PrivacyPolicyPage() {
               We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy 
               Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically 
               for any changes.
-            </p>
-
-            <h2>Contact Us</h2>
+            </p>            <h2>Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at:
             </p>
             <p>
-              Thryvo<br />
-              123 Innovation Way<br />
-              Tech Park, Bangalore 560001<br />
+              Thryvo Technologies Pvt. Ltd.<br />
+              123 Innovation Hub, Sector 21<br />
+              Gurgaon, Haryana 122001<br />
               India<br /><br />
               Email: privacy@thryvo.com<br />
-              Phone: +91 123-456-7890
+              Phone: +91 8800 123 456
             </p>
           </div>
         </Container>

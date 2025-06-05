@@ -10,28 +10,144 @@ export const metadata = {
 
 export default function CollegesPage() {
   return (
-    <>
-      {/* Hero Section */}
+    <>      {/* Hero Section */}
       <section className="bg-gradient-to-b from-indigo-50 to-white py-16 sm:py-24">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-              Transforming Campus Placements
-            </h1>
-            <p className="text-lg text-gray-600 mb-8">
-              Thryvo helps educational institutions streamline their placement processes, connect with top employers, and improve student outcomes.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+                Seamless <span className="text-indigo-600">Campus Management</span> Solution
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Thryvo helps educational institutions streamline their placement processes, connect with top employers, and provide data-driven insights for better student outcomes.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <Button variant="primary" size="large">
+                    Request Demo
+                  </Button>
+                </Link>
+                <Link href="#features">
+                  <Button variant="outline" size="large">
+                    Explore Features
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              {/* Replace with actual image later */}
+              <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
+                <span className="text-2xl font-bold text-indigo-300">College Dashboard Preview</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>      {/* Dashboard Previews */}
+      <section id="features" className="py-16">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Powerful TPO Dashboard
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Everything you need to manage campus recruitment in one intuitive interface
             </p>
-            <div className="inline-flex rounded-md shadow">
-              <Link href="/contact">
-                <Button variant="primary" size="large">
-                  Partner With Us
-                </Button>
-              </Link>
+          </div>
+          
+          <div className="space-y-16">
+            {[
+              {
+                title: "Analytics & Reporting",
+                description: "Gain valuable insights into placement trends, student performance, and recruiter engagement with real-time analytics dashboards.",
+                features: ["Placement rate tracking", "Department-wise analytics", "Year-over-year comparison", "Recruiter activity monitoring"],
+                imagePosition: "right"
+              },
+              {
+                title: "Recruiter Management",
+                description: "Build and maintain relationships with employers through a dedicated CRM specifically designed for campus recruitment.",
+                features: ["Company profiles", "Recruitment history", "Communication logs", "Event scheduling"],
+                imagePosition: "left"
+              },
+              {
+                title: "Student Tracking",
+                description: "Keep track of every student's placement journey from profile creation to job acceptance.",
+                features: ["Skills assessment", "Application tracking", "Interview preparation", "Offer management"],
+                imagePosition: "right"
+              }
+            ].map((item, index) => (
+              <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className={item.imagePosition === "right" ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                  <p className="text-lg text-gray-600 mb-6">{item.description}</p>
+                  <ul className="space-y-2">
+                    {item.features.map((feature, i) => (
+                      <li key={i} className="flex items-center">
+                        <svg className="h-5 w-5 text-indigo-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={`relative h-[300px] rounded-lg overflow-hidden shadow-lg ${item.imagePosition === "right" ? "order-2 lg:order-2" : "order-2 lg:order-1"}`}>
+                  {/* Replace with actual dashboard images */}
+                  <div className="absolute inset-0 bg-indigo-100 flex items-center justify-center">
+                    <span className="text-xl font-bold text-indigo-300">{item.title} Dashboard Preview</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+      
+      {/* Integration Info */}
+      <section className="py-16 bg-gray-50">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Seamless Integration
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Thryvo works with your existing systems for a smooth implementation
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Flexible Integration Options</h3>
+              
+              <div className="space-y-6">
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-lg mb-2">ERP Integration</h4>
+                  <p className="text-gray-600">Connect Thryvo with your institution's ERP system for seamless data flow and student management.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-lg mb-2">LMS Compatibility</h4>
+                  <p className="text-gray-600">Integrate with popular Learning Management Systems to track student skill development and course completion.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-lg mb-2">API Access</h4>
+                  <p className="text-gray-600">Use our comprehensive API to build custom integrations specific to your institution's needs.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-4">
+              {/* Replace with actual integration partner logos */}
+              {[...Array(9)].map((_, i) => (
+                <div key={i} className="bg-white h-20 rounded flex items-center justify-center shadow-sm">
+                  <span className="text-gray-400 font-medium">Partner {i+1}</span>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
       </section>
-
+      
       {/* Benefits Section */}
       <section className="py-16">
         <Container>
@@ -120,55 +236,94 @@ export default function CollegesPage() {
             </div>
           </div>
         </Container>
-      </section>
-
-      {/* Case Studies */}
+      </section>      {/* Key Metrics */}
       <section className="py-16">
         <Container>
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Success Stories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Measurable Results
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Real metrics from colleges that have implemented Thryvo
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              {
-                institution: 'Delhi Technical University',
-                results: [
-                  '40% increase in placement rate',
-                  '250+ companies participating in placement drives',
-                  '65% reduction in administrative workload',
-                ],
-                quote: 'Thryvo has revolutionized our placement process. We\'ve seen a significant increase in employer interest and student satisfaction.',
-                person: 'Dr. Amit Verma, Placement Director',
-              },
-              {
-                institution: 'Bangalore Institute of Technology',
-                results: [
-                  '52% increase in average package offered',
-                  '100+ new employer relationships established',
-                  '89% student engagement with placement portal',
-                ],
-                quote: 'The analytics provided by Thryvo helped us identify key skill gaps and address them proactively, resulting in better placements for our students.',
-                person: 'Prof. Lakshmi Nair, Dean of Student Affairs',
-              },
-            ].map((study, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="bg-indigo-600 p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{study.institution}</h3>
+              { metric: '40%', label: 'Average increase in placements' },
+              { metric: '65%', label: 'Reduction in administrative work' },
+              { metric: '3 Days', label: 'Average onboarding time' },
+              { metric: '89%', label: 'Student engagement rate' },
+            ].map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-indigo-600 mb-2">{item.metric}</div>
+                <p className="text-gray-600">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+      
+      {/* Case Study */}
+      <section className="py-16 bg-indigo-50">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Case Study: Delhi Technical University
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              How DTU transformed their placement process with Thryvo
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">The Challenge</h3>
+                  <p className="text-gray-600 mb-6">
+                    DTU was struggling with manual placement processes, limited employer reach, and difficulty tracking student outcomes. Their placement team was overwhelmed with administrative tasks.
+                  </p>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">The Solution</h3>
+                  <p className="text-gray-600">
+                    Implementing Thryvo's platform allowed DTU to automate routine tasks, expand their employer network, and gain insights into student placement patterns.
+                  </p>
                 </div>
-                <div className="p-6">
-                  <ul className="mb-6 space-y-2">
-                    {study.results.map((result, idx) => (
+                
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">The Results</h3>
+                  <ul className="space-y-4">
+                    {[
+                      '40% increase in placement rate within the first year',
+                      '250+ new companies participating in placement drives',
+                      '65% reduction in administrative workload for TPO staff',
+                      'Improved student satisfaction with the placement process'
+                    ].map((result, idx) => (
                       <li key={idx} className="flex items-start">
-                        <div className="flex-shrink-0 h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold mr-2 text-xs">
+                        <div className="flex-shrink-0 h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold mr-3 text-xs">
                           ✓
                         </div>
                         <span className="text-gray-700">{result}</span>
                       </li>
                     ))}
                   </ul>
-                  <blockquote className="italic text-gray-600 mb-4">"{study.quote}"</blockquote>
-                  <p className="text-right text-sm font-medium text-gray-900">— {study.person}</p>
                 </div>
               </div>
-            ))}
+              
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <blockquote className="italic text-gray-600 mb-4">"Thryvo has revolutionized our placement process. We've seen a significant increase in employer interest and student satisfaction. The platform's analytics have been invaluable in helping us make data-driven decisions about our placement strategy."</blockquote>
+                <div className="flex items-center">
+                  <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold mr-4">
+                    AV
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">Dr. Amit Verma</p>
+                    <p className="text-sm text-gray-500">Director of Training & Placement, Delhi Technical University</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
