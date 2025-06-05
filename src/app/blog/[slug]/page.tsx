@@ -1,10 +1,19 @@
 import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
-import { getBlogPostBySlug, getRelatedPosts } from '@/data/blogPosts';
+import { getBlogPostBySlug, getRelatedPosts, blogPosts } from '@/data/blogPosts';
 import { notFound } from 'next/navigation';
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+type Params = { params: { slug: string } }
+
+// This is required for static site generation with dynamic routes
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: Params) {
   const post = getBlogPostBySlug(params.slug);
   
   if (!post) {
@@ -28,7 +37,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: Params) {
   const post = getBlogPostBySlug(params.slug);
   
   if (!post) {
