@@ -1,4 +1,18 @@
+# Thryvo Website
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## GitHub Pages Deployment
+
+This site is configured to deploy to GitHub Pages automatically using GitHub Actions. When you push changes to the main branch, the site will be built and deployed automatically.
+
+### Manual Deployment Steps
+
+If you need to deploy manually, follow these steps:
+
+1. Create a GitHub repository and push your code
+2. Enable GitHub Pages in the repository settings
+3. The workflow in `.github/workflows/deploy.yml` will handle the build and deployment
 
 ## Getting Started
 
